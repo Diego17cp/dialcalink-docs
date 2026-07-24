@@ -1,0 +1,241 @@
+---
+import { Icon } from "astro-icon/components";
+import logo from "@/assets/dialcalink_icon_white.png";
+import { GITHUB_LINKS, OWNER_RESOURCES } from "@/constants";
+---
+
+<footer
+	class="relative bg-gray-900 dark:bg-black border-t border-gray-800 dark:border-gray-700 overflow-hidden"
+>
+	<div
+		class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-accent/25"
+	>
+	</div>
+	<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<div
+			class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12"
+		>
+			<div class="space-y-4">
+				<div class="flex items-center space-x-3">
+					<div
+						class="size-20 bg-linear-to-r rounded-lg flex items-center justify-center"
+					>
+						<img
+							src={logo.src}
+							alt="DialcaLink"
+							class="object-contain"
+						/>
+					</div>
+					<span class="text-xl font-bold text-white">
+						DialcaLink
+					</span>
+				</div>
+				<p class="text-gray-400 text-sm leading-relaxed">
+					Turn any Android phone with a SIM into a local telephony
+					gateway for another Android device. Sync SMS and call events
+					in real time over a local network.
+				</p>
+				<div class="flex items-center space-x-3 pt-2">
+					<a
+						href={GITHUB_LINKS.REPO}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors duration-200 group"
+						title="Github Repository"
+						aria-label="Github Repository"
+					>
+						<Icon
+							name="tabler:brand-github"
+							class="size-5 text-gray-400 group-hover:text-white transition-colors"
+						/>
+					</a>
+					<a
+						href="/download"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors duration-200 group"
+						title="Download"
+						aria-label="Download"
+					>
+						<Icon
+							name="tabler:download"
+							class="size-5 text-gray-400 group-hover:text-white transition-colors"
+						/>
+					</a>
+				</div>
+			</div>
+			<div>
+				<h3
+					class="text-white font-semibold mb-4 flex items-center gap-2"
+				>
+					<Icon name="lucide:users" class="size-5 text-green-500" />
+					Community
+				</h3>
+				<ul class="space-y-3">
+					<li>
+						<a
+							href={GITHUB_LINKS.REPO}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-green-500 transition-colors"
+							></span>
+							Github
+						</a>
+					</li>
+					<li>
+						<a
+							href={GITHUB_LINKS.ISSUES}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-green-500 transition-colors"
+							></span>
+							Report Issues
+						</a>
+					</li>
+					<li>
+						<a
+							href={GITHUB_LINKS.PULL_REQUESTS}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-green-500 transition-colors"
+							></span>
+							Collaborate
+						</a>
+					</li>
+					<li>
+						<a
+							href={`mailto:${OWNER_RESOURCES.EMAIL}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-green-500 transition-colors"
+							></span>
+							Contact Us
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h3
+					class="text-white font-semibold mb-4 flex items-center gap-2"
+				>
+					<Icon
+						name="lucide:sparkles"
+						class="size-5 text-yellow-500"
+					/>
+					Resources
+				</h3>
+				<ul class="space-y-3">
+					<li>
+						<a
+							href="/blog"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-yellow-500 transition-colors"
+							></span>
+							Blog
+						</a>
+					</li>
+					<li>
+						<a
+							href={GITHUB_LINKS.RELEASES}
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-yellow-500 transition-colors"
+							></span>
+							Changelog
+						</a>
+					</li>
+					<li>
+						<a
+							href="/faq"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-yellow-500 transition-colors"
+							></span>
+							FAQ
+						</a>
+					</li>
+					<li>
+						<a
+							href="/support"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-yellow-500 transition-colors"
+							></span>
+							Support
+						</a>
+					</li>
+					<li>
+						<a
+							href="/download"
+							class="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center gap-2 group"
+						>
+							<span
+								class="size-1 bg-gray-600 rounded-full group-hover:bg-yellow-500 transition-colors"
+							></span>
+							Download App
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pt-8 border-t border-gray-800">
+			<div
+				class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
+			>
+				<div class="flex items-center gap-2 text-gray-400 text-sm">
+					<span>Created with</span>
+					<span class="text-red-500 animate-pulse">
+						<Icon name="lucide:heart" class="size-4" />
+					</span>
+					<span>by</span>
+					<a
+						href={GITHUB_LINKS.OWNER}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center gap-1.5 text-teal-500 hover:text-teal-300 font-medium transition-colors duration-200 group"
+					>
+						<Icon
+							name="tabler:brand-github"
+							class="size-4 group-hover:scale-110 transition-transform"
+						/>
+						DialcaLink Team
+					</a>
+				</div>
+        <div class="flex items-center gap-4 text-gray-400 text-sm flex-wrap justify-center">
+          <span>&copy; 2026 DialcaLink</span>
+          <span class="text-gray-600">•</span>
+          <span class="px-2 py-1 bg-gray-800 rounded text-sm font-mono">
+            <!-- TODO: Cambiar por la logica de versionado automatizada -->
+            v.1.1.4
+          </span>
+          <span class="text-gray-600">•</span>
+          <a
+            href={GITHUB_LINKS.REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-white transition-colors duration-200"
+          >
+            Open Source
+          </a>
+        </div>
+			</div>
+		</div>
+	</div>
+</footer>
