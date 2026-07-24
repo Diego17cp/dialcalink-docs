@@ -5,7 +5,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [icon()],
+	integrations: [icon({
+		include: {
+			tabler: ["*"],
+			lucide: ["*"],
+		}
+	})],
 	vite: {
 		plugins: [tailwindcss()],
 	},
