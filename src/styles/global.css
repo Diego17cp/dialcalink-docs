@@ -1,7 +1,19 @@
+:root {
+	--dialca-primary: #3a7dc0;
+	--dialca-secondary: #085691;
+	--dialca-accent: #22D3C5; /* 'Cause Dart xd */
+}
+
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @plugin "tailwind-scrollbar";
+
+@theme {
+	--color-primary: var(--dialca-primary);
+	--color-secondary: var(--dialca-secondary);
+	--color-accent: var(--dialca-accent);
+}
 
 .main-scrollbar {
 	@apply scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent;
