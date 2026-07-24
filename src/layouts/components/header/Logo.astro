@@ -1,0 +1,42 @@
+---
+import whiteLogo from "@/assets/dialcalink_icon_white.png";
+import blackLogo from "@/assets/dialcalink_icon_black.png";
+
+interface Props {
+	isDark?: boolean;
+}
+
+const { isDark = false } = Astro.props as Props;
+---
+
+<div class="flex items-center transition-opacity duration-300">
+	<a
+		href="/"
+		class="flex items-center space-x-3 transition-transform duration-200 group"
+	>
+		<div class="relative">
+			<img
+				src={blackLogo.src}
+				alt="DialcaLink Logo"
+				class="size-20 transition-all duration-300 group-hover:brightness-110 hover:scale-105 object-contain dark:hidden"
+			/>
+			<img
+				src={whiteLogo.src}
+				alt="DialcaLink Logo"
+				class="size-20 transition-all duration-300 group-hover:brightness-110 hover:scale-105 object-contain hidden dark:block"
+			/>
+
+		</div>
+		<div class="md:flex flex-col hidden">
+			<span
+				class="font-bold text-2xl bg-linear-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent"
+			>
+				DialcaLink
+			</span>
+			<span
+				class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide"
+				>Documentation</span
+			>
+		</div>
+	</a>
+</div>

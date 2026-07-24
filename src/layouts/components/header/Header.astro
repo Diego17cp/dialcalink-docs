@@ -1,0 +1,103 @@
+---
+import { Icon } from "astro-icon/components";
+import Logo from "./Logo.astro";
+import DesktopActions from "./DesktopActions.astro";
+import { navConfig } from "@/config";
+import DesktopNav from "./DesktopNav.astro";
+import MobileActions from "./MobileActions.astro";
+import MobileMenu from "./MobileMenu.astro";
+---
+
+<header
+	class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/80 dark:bg-gray-900/95 dark:border-gray-700/80 shadow-sm transition-all duration-300 ease-out"
+>
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex items-center justify-between h-20">
+			<Logo />
+			<DesktopNav navConfig={navConfig} />
+			<DesktopActions />
+			<MobileActions />
+		</div>
+	</div>
+	<div
+		class="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600"
+	/>
+</header>
+
+<MobileMenu navConfig={navConfig} />
+
+<script>
+	const toggleTheme = () => {
+		const isDark = document.documentElement.classList.toggle("dark");
+		localStorage.setItem("dialcalink:theme", isDark ? "dark" : "light");
+	};
+	const openMobileMenu = () => {
+		const mobileMenu = document.getElementById("mobile-menu");
+		const mobileOverlay = document.getElementById("mobile-overlay");
+		const menuBtn = document.querySelector(".menu-btn");
+		const closeBtn = document.querySelector(".close-btn");
+
+		mobileMenu?.classList.remove("-translate-y-full");
+		mobileMenu?.classList.add("translate-y-0");
+		mobileOverlay?.classList.remove("hidden");
+		menuBtn?.classList.add("hidden");
+		menuBtn?.classList.add("hidden");
+		closeBtn?.classList.remove("hidden");
+		document.body.style.overflow = "hidden";
+	};
+	const closeMobileMenu = () => {
+		const mobileMenu = document.getElementById("mobile-menu");
+		const mobileOverlay = document.getElementById("mobile-overlay");
+		const menuBtn = document.querySelector(".menu-btn");
+		const closeBtn = document.querySelector(".close-btn");
+
+		mobileMenu?.classList.add("-translate-y-full");
+		mobileMenu?.classList.remove("translate-y-0");
+		mobileOverlay?.classList.add("hidden");
+		menuBtn?.classList.remove("hidden");
+		closeBtn?.classList.add("hidden");
+		document.body.style.overflow = "";
+	}
+	const toggleActiveNavItem = () => {
+		const currentPath = window.location.pathname;
+		const navLinks = document.querySelectorAll(".nav-link");
+		navLinks.forEach(link => {
+			link.classList.remove(
+				"bg-gradient-to-tr",
+				"from-blue-400/10",
+				"to-orange-500/50",
+				"shadow-sm"
+			);
+			if (link.getAttribute("href") === currentPath) {
+				link.classList.add(
+					"bg-gradient-to-tr",
+					"from-blue-400/10",
+					"to-orange-500/50",
+					"shadow-sm"
+				)
+			}
+		})
+	}
+
+	const attachEventListeners = () => {
+		const themeToggle = document.getElementById("theme-toggle-btn");
+		const themeToggleMobile = document.getElementById("theme-toggle-mobile")
+		const mobileMenuToggle = document.getElementById("mobile-menu-toggle")
+		const mobileMenuOverlay = document.getElementById("mobile-overlay")
+		const mobileMenu = document.getElementById("mobile-menu")
+
+		themeToggle?.addEventListener("click", toggleTheme);
+		themeToggleMobile?.addEventListener("click", toggleTheme);
+
+		mobileMenuToggle?.addEventListener("click", () => {
+			if (mobileMenu?.classList.contains("-translate-y-full")) openMobileMenu()
+			else closeMobileMenu();
+		})
+		mobileMenuOverlay?.addEventListener("click", closeMobileMenu);
+
+		toggleActiveNavItem();
+		
+	};
+	attachEventListeners();
+	document.addEventListener("astro:after-swap", attachEventListeners);
+</script>
